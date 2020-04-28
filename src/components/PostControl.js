@@ -14,7 +14,7 @@ class PostControl extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(props);
+    console.log("postcontrol props",props);
     this.state = {
       selectedPost: null,
       editing: false
@@ -138,7 +138,7 @@ PostControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterTicketList: state.masterTicketList,
+    masterPostList: state.masterPostList,
     formVisibleOnPage: state.formVisibleOnPage
   }
 }

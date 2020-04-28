@@ -6,15 +6,15 @@ function PostList(props){
   console.log("postList ",props.postList);
   return (
     <React.Fragment>
-      {/* {Object.values(props.postList).map((post) => {
-        return  <Post
-          whenPostClicked={props.onPostSelection} 
+      <hr />
+      {Object.values(props.postList).map((post) => {
+        return <Post
+          whenPostClicked={props.onPostSelection}
           title={post.title}
           description={post.description}
           id={post.id}
-          key={post.id}
-        />
-      })} */}
+          key={post.id} />
+      })}
     </React.Fragment>
   );
 }
