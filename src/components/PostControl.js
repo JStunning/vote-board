@@ -39,7 +39,7 @@ class PostControl extends React.Component {
     const { dispatch } = this.props;
     const { id, title, description} = newPost;
     const action = {
-      type: 'ADD_TICKET',
+      type: 'ADD_POST',
       id: id,
       title: title,
       description: description
@@ -59,7 +59,7 @@ class PostControl extends React.Component {
   handleDeletingPost = (id) => {
     const { dispatch } = this.props;
     const action = {
-      type: 'DELETE_TICKET',
+      type: 'DELETE_POST',
       id: id
     }
     dispatch(action);
@@ -75,7 +75,7 @@ class PostControl extends React.Component {
     const { dispatch } = this.props;
     const { id, title, description } = postToEdit;
     const action = {
-      type: 'ADD_TICKET',
+      type: 'ADD_POST',
       id: id,
       title: title,
       description: description
@@ -108,9 +108,10 @@ class PostControl extends React.Component {
       currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList}  />;
       buttonText = "Return to Post List";
     } else {
-      currentlyVisibleState = <PostList postList={this.state.masterPostList} onPostSelection={this.handleChangingSelectedPost} />;
+      currentlyVisibleState = <PostList postList={this.props.masterPostList} onPostSelection={this.handleChangingSelectedPost} />;
       // Because a user will actually be clicking on the post in the Post component, we will need to pass our new handleChangingSelectedPost method as a prop.
       buttonText = "Add Post";
+      console.log("masterPostList", this.state.masterPostList)
   }
 
   return (
@@ -129,8 +130,7 @@ PostControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterPostList: state.masterPostList,
-    formVisibleOnPage: state.formVisibleOnPage
+    masterPostList: state
   }
 }
 
