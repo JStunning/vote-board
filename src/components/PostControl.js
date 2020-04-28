@@ -3,6 +3,7 @@ import NewPostForm from './NewPostForm';
 import PostList from './PostList';
 import PostDetail from './PostDetail';
 import EditPostForm from './EditPostForm';
+import SideBar from './SideBar'
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 // import HaveYou1 from './HaveYou1';
@@ -116,8 +117,15 @@ class PostControl extends React.Component {
 
   return (
     <React.Fragment>
-      {currentlyVisibleState}
-      <button onClick={this.handleClick}>{buttonText}</button>
+      <div id="container">
+        <div id="CurrentState">
+          {currentlyVisibleState}
+          <button onClick={this.handleClick}>{buttonText}</button>
+        </div>
+        <div id="SideBar">
+          <SideBar />
+        </div>
+      </div>
     </React.Fragment>
   );
   }
@@ -130,7 +138,8 @@ PostControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterPostList: state
+    masterTicketList: state.masterTicketList,
+    formVisibleOnPage: state.formVisibleOnPage
   }
 }
 

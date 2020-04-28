@@ -6,7 +6,7 @@ function PostList(props){
   console.log("postList ",props.postList);
   return (
     <React.Fragment>
-      {Object.values(props.postList).map((post) => {
+      {/* {Object.values(props.postList).map((post) => {
         return  <Post
           whenPostClicked={props.onPostSelection} 
           title={post.title}
@@ -14,7 +14,7 @@ function PostList(props){
           id={post.id}
           key={post.id}
         />
-      })}
+      })} */}
     </React.Fragment>
   );
 }
